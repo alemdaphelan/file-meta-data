@@ -15,8 +15,7 @@ app.get('/', function (req, res) {
 
 app.post('/api/fileanalyse',upload.single('upfile'),(req,res)=>{
   const {originalname,mimetype,size} = req.file;
-  const name = Buffer.from(originalname,'latin1').toString('utf-8');
-  res.json({name: name, type: mimetype, size: size});
+  res.json({name: originalname, type: mimetype, size: size});
 })
 
 
